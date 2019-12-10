@@ -54,8 +54,6 @@ log "Processing: "$TORRENT_FOLDER""
 if [ -d "$TORRENT_PATH" ]; then
     log "Cleaning up ""$TORRENT_PATH"" folder"
 
-    # find "$TORRENT_PATH" -type f | grep -vE '\.(mp4|avi|mkv|str)$' | xargs rm -f
-
     find "$TORRENT_PATH" -type f -not \( -name "*.mkv" -o -name "*.srt" -o -name "*.mp4" -o -name "*.avi" \) -delete
 
     FOLDER_NAME=$(echo "$TORRENT_FOLDER" | sed -e 's/.S.*//')
