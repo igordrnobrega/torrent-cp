@@ -51,7 +51,7 @@ create_final_path
 
 log "Processing: "$TORRENT_FOLDER""
 
-if [ -d "$TORRENT_PATH" ]; then
+if [ -d "$TORRENT_PATH" ] && [ "$(find "$TORRENT_PATH" -type d \( -name "*.S[0-9]*" \))" ]; then
     log "Cleaning up ""$TORRENT_PATH"" folder"
 
     find "$TORRENT_PATH" -type f -not \( -name "*.mkv" -o -name "*.srt" -o -name "*.mp4" -o -name "*.avi" \) -delete
