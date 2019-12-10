@@ -10,5 +10,5 @@ Execute script
 ```shell
 ./rclonecopy.sh "$N" "$R"
 ```
-%N: Folder Name
-%R Root path
+- %N: Folder Name
+- %R Root path
