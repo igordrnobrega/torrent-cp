@@ -8,7 +8,7 @@ chmod +x rclonecopy.sh
 
 Execute script
 ```shell
-./rclonecopy.sh "$N" "$R"
+./rclonecopy.sh "%N" "%R"
 ```
 - %N: Folder Name
 - %R Root path
