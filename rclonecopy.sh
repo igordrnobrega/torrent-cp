@@ -8,7 +8,7 @@ TORRENT_FOLDER="$1"
 # Set the default directory where the folder will be downloaded
 TORRENT_DOWNLOAD_DIR=${2:-"/Users/igornobrega/Movies/Movies"}
 # Set the final directory
-TORRENT_FINAL_DIR="/Volumes/THAIS LEITE/Plex"
+TORRENT_FINAL_DIR="/Volumes/THAIS LEITE/Plex/series"
 TORRENT_PATH="$TORRENT_DOWNLOAD_DIR"/"$TORRENT_FOLDER"
 
 LOG_FILE_NAME="auto_move.log"
@@ -52,7 +52,7 @@ create_final_path
 log "Processing: "$TORRENT_FOLDER""
 
 if [ -d "$TORRENT_PATH" ] && [ "$(find "$TORRENT_PATH" -type d \( -name "*.S[0-9]*" \))" ]; then
-    log "Cleaning up ""$TORRENT_PATH"" folder"
+    log "Cleaning up "$TORRENT_PATH" folder"
 
     find "$TORRENT_PATH" -type f -not \( -name "*.mkv" -o -name "*.srt" -o -name "*.mp4" -o -name "*.avi" \) -delete
 
@@ -64,9 +64,13 @@ if [ -d "$TORRENT_PATH" ] && [ "$(find "$TORRENT_PATH" -type d \( -name "*.S[0-9
         mkdir "$TORRENT_FINAL_PATH"
     fi
 
-    log "Moving ""$TORRENT_PATH"" to ""$TORRENT_FINAL_PATH"""
+    log "Moving "$TORRENT_PATH" to "$TORRENT_FINAL_PATH""
 
     mv "$TORRENT_PATH"/ "$TORRENT_FINAL_PATH"/
+
+    log "Removing "$TORRENT_PATH""
+
+    # rm -rf "$TORRENT_PATH"/ || true
 else
-    log "Path not found ""$TORRENT_PATH"""
+    log "Path not found "$TORRENT_PATH""
 fi

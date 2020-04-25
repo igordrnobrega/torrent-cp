@@ -3,12 +3,12 @@ Script to handle torrent download paths, clean it and then move it.
 
 Give execute permission to file.
 ```shell
-chmod +x rclonecopy.sh
+chmod +xr rclonecopy.sh
 ```
 
 Execute script
 ```shell
 ./rclonecopy.sh "%N" "%R"
 ```
-- %N: Folder Name
+- %N **required**: Folder Name
 - %R Root path
